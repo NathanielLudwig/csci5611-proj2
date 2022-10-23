@@ -14,12 +14,12 @@ public class Cloth : MonoBehaviour
     Vector3 stringTop = new(0, 10, 0);
     float restLen = 3f;
     float mass = 1.0f;
-    float k = 200;
-    float kv = 20f;
+    float k = 300;
+    float kv = 30;
     public Material ballMaterial;
     public GameObject backsideMeshObject;
 
-    Vector3 spherePos = new(5, -5, 5);
+    Vector3 spherePos = new(7, -7, 17);
     float sphereRadius = 7;
 
     //Initial positions and velocities of masses
@@ -46,6 +46,13 @@ public class Cloth : MonoBehaviour
         meshback = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         backsideMeshObject.GetComponent<MeshFilter>().mesh = meshback;
+        CreateNodes();
+        CreateMesh();
+        UpdateMesh();
+    }
+
+    void CreateNodes()
+    {
         for (int i = 0; i < numNodes; i++)
         {
             for (int j = 0; j < numNodes; j++)
@@ -57,8 +64,6 @@ public class Cloth : MonoBehaviour
                 vel[i, j] = new Vector3(0, 0, 0);
             }
         }
-        CreateMesh();
-        UpdateMesh();
     }
 
     void CreateMesh()
@@ -214,7 +219,7 @@ public class Cloth : MonoBehaviour
                     Vector3 normal = (pos[i, j] - (spherePos)).normalized;
                     pos[i, j] = spherePos + (normal * ((sphereRadius + radius) * (1.01f)));
                     Vector3 velNormal = normal * (Vector3.Dot(vel[i, j], normal));
-                    vel[i, j] -= (velNormal * (1f + 0.7f));
+                    vel[i, j] -= (velNormal * (0.7f));
                 }
             }
         }
@@ -232,6 +237,13 @@ public class Cloth : MonoBehaviour
     //         Gizmos.DrawSphere(t, .1f);
     //     }
     // }
+    private void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            CreateNodes();
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
