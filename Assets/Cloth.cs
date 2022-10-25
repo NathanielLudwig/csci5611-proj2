@@ -10,7 +10,7 @@ public class Cloth : MonoBehaviour
     // Start is called before the first frame update
     float floor = 500f;
     Vector3 gravity = new(0, -10, 0);
-    float radius = 1f;
+    float radius = 0.5f;
     Vector3 stringTop = new(0, 10, 0);
     float restLen = 3f;
     float mass = 1.0f;
@@ -35,6 +35,7 @@ public class Cloth : MonoBehaviour
     private Vector3[] vertices;
     private int[] triangles;
     private int[] trianglesback;
+    private Vector2[] uvs;
 
     void Start()
     {
@@ -119,6 +120,16 @@ public class Cloth : MonoBehaviour
 
             vert++;
         }
+        uvs = new Vector2[vertices.Length];
+        int uvidx = 0;
+        for (int i = 0; i < numNodes; i++)
+        {
+            for (int j = 0; j < numNodes; j++)
+            {
+                uvs[uvidx] = new Vector2((float)j / numNodes, (float)i / numNodes);
+                uvidx++;
+            } 
+        }
     }
 
     void UpdateMesh()
@@ -138,6 +149,8 @@ public class Cloth : MonoBehaviour
         meshback.vertices = vertices;
         mesh.triangles = triangles;
         meshback.triangles = trianglesback;
+        mesh.uv = uvs;
+        meshback.uv = uvs;
         mesh.RecalculateNormals();
         meshback.RecalculateNormals();
     }

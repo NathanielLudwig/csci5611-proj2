@@ -92,7 +92,7 @@ public class Fluid : MonoBehaviour
             }
             else
             {
-                h[i] = i;
+                h[i] = i*1f;
             }
         }
         CreateMesh();
