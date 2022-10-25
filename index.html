@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>CSCI 5611 Project 2 - Nathaniel Ludwig - ludwi298</h1>
+        <h2>A brief description of features with videos</h2>
+        <h3>video 1</h3>
+        <video width="400" controls autoplay>
+            <source src="https://github.com/NathanielLudwig/CSCI-5611-project1/blob/master/videos/demo.mov?raw=true" type="video/mp4">
+        </video>
+        <ul>
+            <li>Multiple Ropes - timestamp: whole video</li>
+            <li>Cloth Simulation - timestamp: whole video</li>
+            <li>3D simulation - timestamp: whole video</li>
+            <li>High quality rendering - timestamp: whole video</li>
+        </ul>
+        <h3>video 2</h3>
+        <video width="400" controls autoplay>
+            <source src="https://github.com/NathanielLudwig/CSCI-5611-project1/blob/master/videos/demo.mov?raw=true" type="video/mp4">
+        </video>
+        <ul>
+            <li>Challenge: Continuum Fluid simulation timestamp: whole video</li>
+        </ul>
+        <h2>An explicit list of features </h2>
+        <ul>
+            <li>Mutiple Ropes: I expanded the starter rope code to support
+            multiple swinging ropes. There is also one way interaction with spheres
+            and collision handling logic reused from the particle simulation demo.</li>
+            <li>Cloth Simulation: Horizontal springs were added to the ropes
+            to create the cloth. The video shows the cloth falling on the 
+            sphere obstacle.</li>
+            <li>3D Simulation: The cloth is rendered using Unity 3D. There is also 
+            controls for the camera to change the view. arrow keys to move around
+            and right click while dragging the mouse to look around. q and e keys to go
+            up and down.</li>
+            <li>High quality rendering - The rendering uses 3D lighting provided
+            by Unity 3D. The cloth is textured with an image of the University of Minnesota logo.</li>
+            <li>Challenge: Continuum Fluid simulation - The second video shows
+            a visualization of the shallow water equation in 1D. It's expanded to a
+            2D mesh colored blue to look like water. There is a border around
+            the fluid to make it look like a tank of water. The rendering is also 
+            done in Unity 3D.</li>
+        </ul>
+        <h2>Source Code</h2>
+        <a href="https://raw.githubusercontent.com/NathanielLudwig/CSCI-5611-project1/master/Proj1_Test.pde">Proj1_Test.pde</a>
+        <a href="https://raw.githubusercontent.com/NathanielLudwig/CSCI-5611-project1/master/CollisionLibrary.pde">CollisionLibrary.pde</a>
+        <a href="https://raw.githubusercontent.com/NathanielLudwig/CSCI-5611-project1/master/PRM.pde">PRM.pde</a>
+        <a href="https://github.com/NathanielLudwig/CSCI-5611-project1/blob/master/Vec2.pde">Vec2.pde</a>
+        <a href="https://github.com/NathanielLudwig/CSCI-5611-project1/archive/refs/heads/master.zip">ALL FILES - zip</a><br><br>
+        <h2>List of tools/libraries</h2>
+        <p>This project I decided to try Unity 3D instead of processing. I found that the 
+        Unity project was easier to debug and test which let me iterate on the project faster.
+        The rope/cloth code was adapted from the rope example showed in class. The 1D 
+        SWE equation is also based on the slides.</p>
+        <h2>difficulties encountered</h2>
+        <p>I didn't face any difficulties, never used unity before but it was easy to a 3d scene running and adapt the processing code. </p>
+    </body>
+</html>
